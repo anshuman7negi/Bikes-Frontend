@@ -16,12 +16,12 @@ const Navbar = () => {
                 <h1 className="text-2xl font-bold">Royal Feel</h1>
                 <ul className="list-none flex flex-col text-xl w-full font-bold">
                     <li className="hover:bg-orange-500 w-full text-center py-2">
-                      Bikes
+                        <Link to="/">Bikes</Link>
                     </li>
                     <li className="hover:bg-orange-500 w-full text-center py-2">Reserve</li>
                     <li className="hover:bg-orange-500 w-full text-center py-2">My Reservation</li>
-                    <li className="hover:bg-orange-500 w-full text-center py-2">                        
-                        add
+                    <li className="hover:bg-orange-500 w-full text-center py-2">
+                    <Link to="/addBikes">ADD Bikes </Link>                        
                     </li>
                     <li className="hover:bg-orange-500 w-full text-center py-2">Delete</li>
                 </ul>
