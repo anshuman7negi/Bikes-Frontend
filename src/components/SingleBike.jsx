@@ -15,7 +15,7 @@ const SingleBike = () => {
     }, [dispatch]);
 
     if (!message.bikes && !selectedBike) {
-        return <h1>Loading.......</h1>
+        return <h1 className="font-bold text-xl m-auto">Loading.......</h1>
     }
 
     return (

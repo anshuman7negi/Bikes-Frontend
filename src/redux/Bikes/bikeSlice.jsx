@@ -27,6 +27,18 @@ export const createBike = createAsyncThunk(
   }
 )
 
+export const deleteBike = createAsyncThunk(
+  'bikes/deleteBike',
+  async(bikeId, thunkAPI) => {
+    try {
+      const response = await axios.delete(`${BASE_URL}/delete_bike/${bikeId}`)
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error);
+    }
+  }
+)
+
 
 const initialState = {
     message: '',
@@ -53,6 +65,12 @@ export const bikeSlice = createSlice({
           })
           .addCase(createBike.fulfilled, (state, action) => {
             state.message = action.payload;
+          })
+          .addCase(deleteBike.fulfilled, (state, action) => {
+            const updatedBikes = state.message.bikes.filter(
+              (bike) => bike.id !== action.meta.arg,
+            );
+            state.message.bikes = updatedBikes;
           });
       },
 })

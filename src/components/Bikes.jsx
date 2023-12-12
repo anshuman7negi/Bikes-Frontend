@@ -30,10 +30,10 @@ const Bikes = () => {
             </p>
         );
     }
-    if (message) {
+    if (message && message.bikes.length > 0) {
 
         return (
-            <div className="flex flex-wrap items-center justify-center p-6 gap-4">
+            <div className="flex flex-wrap items-center justify-center p-6 gap-4 pt-16">
                 {message.bikes.map((bike) => (
                     <Link to={`/show/${bike.id}`} key={bike.id}>
                         <div className="flex flex-col bg-[#f9f9f9] w-[300px] gap-1 border-solid border-2 p-1 rounded-lg border-[#e1e1e1]" key={bike.id}>
@@ -49,6 +49,9 @@ const Bikes = () => {
             </div>
         );
     }
+    return(
+        <h1 className="font-bold text-xl m-auto">No Bikes To show</h1>
+    )
 };
 
 export default Bikes;
